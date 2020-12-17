@@ -5,11 +5,27 @@ Resources:
   hellojava:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: s3://acg-devops-joseph/0ad507e21e0fb085bf431cfa63288bb8
+      CodeUri: s3://acg-devops-joseph/c53179336ffe744cef3f05cfe2c987ad
       Handler: example.HelloHandler
       Runtime: java11
       Description: Java function
       FunctionName: hello-java
+      MemorySize: 128
+      Timeout: 10
+      Policies:
+      - AWSLambdaBasicExecutionRole
+      - AWSLambdaReadOnlyAccess
+      - AWSXrayWriteOnlyAccess
+      - AWSLambdaVPCAccessExecutionRole
+      Tracing: Active
+  hellojava2:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: s3://acg-devops-joseph/c53179336ffe744cef3f05cfe2c987ad
+      Handler: example2.HelloHandler2
+      Runtime: java11
+      Description: Java function
+      FunctionName: hello-java2
       MemorySize: 128
       Timeout: 10
       Policies:

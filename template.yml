@@ -19,3 +19,21 @@ Resources:
         - AWSXrayWriteOnlyAccess
         - AWSLambdaVPCAccessExecutionRole
       Tracing: Active
+
+  hellojava2:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: target/aws_lambda_hello_java-0.0.1-SNAPSHOT.jar
+      Handler: example2.HelloHandler2
+      Runtime: java11
+      Description: Java function
+      FunctionName: hello-java2
+      MemorySize: 128
+      Timeout: 10
+      # Function's execution role
+      Policies:
+        - AWSLambdaBasicExecutionRole
+        - AWSLambdaReadOnlyAccess
+        - AWSXrayWriteOnlyAccess
+        - AWSLambdaVPCAccessExecutionRole
+      Tracing: Active
